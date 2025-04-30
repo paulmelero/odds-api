@@ -4,8 +4,10 @@ export default defineEventHandler((event) => {
   const list: string[] = [];
 
   for (const n in SOURCE) {
-    for (const m in SOURCE[n]) {
-      list.push(`${n}/${m} - ${Object.values(m).length}`);
+    const nKey = parseInt(n) as keyof typeof SOURCE;
+    for (const m in SOURCE[nKey]) {
+      // const mKey = parseInt(m) as keyof (typeof SOURCE)[typeof nKey];
+      list.push(`${n}/${m} - ${Object.values(SOURCE[nKey]).length}`);
     }
   }
 
