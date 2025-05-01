@@ -26,3 +26,21 @@ The API expects a GET request to an odds endpoint, and it returns a JSON respons
 ```bash
 curl -X GET "https://odds-api.graficos-net.workers.dev/1/5"
 ```
+
+If you have `jq` installed, you can format the output like this:
+
+```bash
+curl -X GET "https://odds-api.graficos-net.workers.dev/1/5" | jq .
+```
+
+### Example Response
+
+```json
+{
+  "value": 0.5,
+  "fraction": "1/2",
+  "source": "https://en.wikipedia.org/wiki/Fair_coin",
+  "exampleEvent": "Fair Coin Toss",
+  "exampleDescription": "A fair coin has a 50% chance of landing on each side, meaning it's 1/2 likely to land on heads and 1/2 likely to land on tails."
+}
+```

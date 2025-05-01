@@ -5,7 +5,7 @@ export const SOURCE = Object.freeze({
     5: {
       value: 0.5,
       fraction: "1/2",
-      source: "https://www.google.com/search?q=5+tenths+odds",
+      source: "https://en.wikipedia.org/wiki/Fair_coin",
       exampleEvent: "Fair Coin Toss",
       exampleDescription:
         "A fair coin has a 50% chance of landing on each side, meaning it's 1/2 likely to land on heads and 1/2 likely to land on tails.",

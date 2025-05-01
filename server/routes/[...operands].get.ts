@@ -31,7 +31,7 @@ export default defineEventHandler((event) => {
 
   if (!isValidPath(operands)) {
     return {
-      statusCode: 444,
+      statusCode: 400,
       body: {
         message:
           "Invalid path. Please use the format /n/m (e.g. /2/5 for 5 × 10^-2)",
@@ -41,5 +41,16 @@ export default defineEventHandler((event) => {
 
   const [n, m] = getOperandsFromParams({ operands });
 
-  return SOURCE[n][m];
+  const response = SOURCE[n][m];
+
+  if (!response) {
+    return {
+      statusCode: 404,
+      body: {
+        message: "The odds were not in your favour. Please try again.",
+      },
+    };
+  }
+
+  return response;
 });
